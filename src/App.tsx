@@ -1,37 +1,25 @@
-import nodeLogo from './assets/node.svg'
 import { useState } from 'react'
-import Update from '@/components/update'
+import { Button } from 'primereact/button';    
+import { InputText } from 'primereact/inputtext';     
 import './App.scss'
+
+import "primereact/resources/themes/md-light-indigo/theme.css";     
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";                                       
+         
 
 console.log('[App.tsx]', `Hello world from Electron ${process.versions.electron}!`)
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text, setText] = useState('')
+
   return (
     <div className='App'>
-      <div className='logo-box'>
-        <a href='https://github.com/electron-vite/electron-vite-react' target='_blank'>
-          <img src='./vite.svg' className='logo vite' alt='Electron + Vite logo' />
-          <img src='./electron.svg' className='logo electron' alt='Electron + Vite logo' />
-        </a>
-      </div>
-      <h1>Electron + Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Electron + Vite logo to learn more
-      </p>
-      <div className='flex-center'>
-        Place static files into the<code>/public</code> folder <img style={{ width: '5em' }} src={nodeLogo} alt='Node logo' />
-      </div>
-
-      <Update />
+      <InputText value={text} onChange={e => setText(e.target.value)}></InputText>
+      <br></br>
+      <Button type='button' label='Submit' icon='pi pi-check'></Button>
+      <br></br>
+      {text}
     </div>
   )
 }
