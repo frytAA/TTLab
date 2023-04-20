@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
 import { Box, Toolbar } from "@mui/material";
+import { Outlet } from "react-router-dom";
 import colorConfigs from "../../configs/colorConfigs";
 import sizeConfigs from "../../configs/sizeConfigs";
 import Sidebar from "../common/Sidebar";
@@ -13,7 +13,7 @@ const MainLayout = () => {
         component="nav"
         sx={{
           width: sizeConfigs.sidebar.width,
-          flexShrink: 0
+          flexShrink: 0,
         }}
       >
         <Sidebar />
@@ -25,7 +25,7 @@ const MainLayout = () => {
           p: 3,
           width: `calc(100% - ${sizeConfigs.sidebar.width})`,
           minHeight: "100vh",
-          backgroundColor: colorConfigs.mainBg
+          backgroundColor: colorConfigs.mainBg,
         }}
       >
         <Toolbar />

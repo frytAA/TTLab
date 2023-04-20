@@ -1,10 +1,17 @@
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import {
+  Collapse,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import colorConfigs from "../../configs/colorConfigs";
+import { RootState } from "../../redux/store";
 import { RouteType } from "../../routes/config";
 import SidebarItem from "./SidebarItem";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
 
 type Props = {
   item: RouteType;
@@ -21,52 +28,51 @@ const SidebarItemCollapse = ({ item }: Props) => {
     }
   }, [appState, item]);
 
-  return (
-    item.sidebarProps ? (
-      <>
-        <ListItemButton
-          onClick={() => setOpen(!open)}
+  return item.sidebarProps ? (
+    <>
+      <ListItemButton
+        onClick={() => setOpen(!open)}
+        sx={{
+          "&: hover": {
+            backgroundColor: colorConfigs.sidebar.hoverBg,
+          },
+          paddingY: "12px",
+          paddingX: "24px",
+        }}
+      >
+        <ListItemIcon
           sx={{
-            "&: hover": {
-              backgroundColor: colorConfigs.sidebar.hoverBg
-            },
-            paddingY: "12px",
-            paddingX: "24px"
+            color: colorConfigs.sidebar.color,
           }}
         >
-          <ListItemIcon sx={{
-            color: colorConfigs.sidebar.color
-          }}>
-            {item.sidebarProps.icon && item.sidebarProps.icon}
-          </ListItemIcon>
-          <ListItemText
-            disableTypography
-            primary={
-              <Typography>
-                {item.sidebarProps.displayText}
-              </Typography>
-            }
-          />
-          {/* {open ? <ExpandLessOutlinedIcon /> : <ExpandMoreOutlinedIcon />} */}
-          {open ? <span className="pi pi-angle-up"></span> : <span className="pi pi-angle-down"></span>}
-          
-        </ListItemButton>
-        <Collapse in={open} timeout="auto">
-          <List>
-            {item.child?.map((route, index) => (
-              route.sidebarProps ? (
-                route.child ? (
-                  <SidebarItemCollapse item={route} key={index} />
-                ) : (
-                  <SidebarItem item={route} key={index} />
-                )
-              ) : null
-            ))}
-          </List>
-        </Collapse>
-      </>
-    ) : null
-  );
+          {item.sidebarProps.icon && item.sidebarProps.icon}
+        </ListItemIcon>
+        <ListItemText
+          disableTypography
+          primary={<Typography>{item.sidebarProps.displayText}</Typography>}
+        />
+        {/* {open ? <ExpandLessOutlinedIcon /> : <ExpandMoreOutlinedIcon />} */}
+        {open ? (
+          <span className="pi pi-angle-up"></span>
+        ) : (
+          <span className="pi pi-angle-down"></span>
+        )}
+      </ListItemButton>
+      <Collapse in={open} timeout="auto">
+        <List>
+          {item.child?.map((route, index) =>
+            route.sidebarProps ? (
+              route.child ? (
+                <SidebarItemCollapse item={route} key={index} />
+              ) : (
+                <SidebarItem item={route} key={index} />
+              )
+            ) : null
+          )}
+        </List>
+      </Collapse>
+    </>
+  ) : null;
 };
 
 export default SidebarItemCollapse;

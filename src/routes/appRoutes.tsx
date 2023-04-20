@@ -1,27 +1,27 @@
-import DashboardPageLayout from "../pages/dashboard/DashboardPageLayout";
-import HomePage from "../pages/home/HomePage";
-import { RouteType } from "./config";
-import DefaultPage from "../pages/dashboard/DefaultPage";
-import DashboardIndex from "../pages/dashboard/DashboardIndex";
+import AppsOutlinedIcon from "@mui/icons-material/AppsOutlined";
+import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
 import ChangelogPage from "../pages/changelog/ChangelogPage";
-import AnalyticsPage from "../pages/dashboard/AnalyticsPage";
-import SaasPage from "../pages/dashboard/SaasPage";
-import ComponentPageLayout from "../pages/component/ComponentPageLayout";
 import AlertPage from "../pages/component/AlertPage";
 import ButtonPage from "../pages/component/ButtonPage";
-import InstallationPage from "../pages/installation/InstallationPage";
+import ComponentPageLayout from "../pages/component/ComponentPageLayout";
+import AnalyticsPage from "../pages/dashboard/AnalyticsPage";
+import DashboardIndex from "../pages/dashboard/DashboardIndex";
+import DashboardPageLayout from "../pages/dashboard/DashboardPageLayout";
+import DefaultPage from "../pages/dashboard/DefaultPage";
+import SaasPage from "../pages/dashboard/SaasPage";
 import DocumentationPage from "../pages/documentation/DocumentationPage";
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
-import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
-import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import HomePage from "../pages/home/HomePage";
+import InstallationPage from "../pages/installation/InstallationPage";
+import { RouteType } from "./config";
 
 const appRoutes: RouteType[] = [
   {
     index: true,
     element: <HomePage />,
-    state: "home"
+    state: "home",
   },
   {
     path: "/installation",
@@ -29,8 +29,8 @@ const appRoutes: RouteType[] = [
     state: "installation",
     sidebarProps: {
       displayText: "Installation",
-      icon: <FileDownloadOutlinedIcon />
-    }
+      icon: <FileDownloadOutlinedIcon />,
+    },
   },
   {
     path: "/dashboard",
@@ -38,20 +38,20 @@ const appRoutes: RouteType[] = [
     state: "dashboard",
     sidebarProps: {
       displayText: "Dashboard",
-      icon: <DashboardOutlinedIcon />
+      icon: <DashboardOutlinedIcon />,
     },
     child: [
       {
         index: true,
         element: <DashboardIndex />,
-        state: "dashboard.index"
+        state: "dashboard.index",
       },
       {
         path: "/dashboard/default",
         element: <DefaultPage />,
         state: "dashboard.default",
         sidebarProps: {
-          displayText: "Default"
+          displayText: "Default",
         },
       },
       {
@@ -59,18 +59,18 @@ const appRoutes: RouteType[] = [
         element: <AnalyticsPage />,
         state: "dashboard.analytics",
         sidebarProps: {
-          displayText: "Analytic"
-        }
+          displayText: "Analytic",
+        },
       },
       {
         path: "/dashboard/saas",
         element: <SaasPage />,
         state: "dashboard.saas",
         sidebarProps: {
-          displayText: "Saas"
-        }
-      }
-    ]
+          displayText: "Saas",
+        },
+      },
+    ],
   },
   {
     path: "/component",
@@ -78,7 +78,7 @@ const appRoutes: RouteType[] = [
     state: "component",
     sidebarProps: {
       displayText: "Components",
-      icon: <AppsOutlinedIcon />
+      icon: <AppsOutlinedIcon />,
     },
     child: [
       {
@@ -86,7 +86,7 @@ const appRoutes: RouteType[] = [
         element: <AlertPage />,
         state: "component.alert",
         sidebarProps: {
-          displayText: "Alert"
+          displayText: "Alert",
         },
       },
       {
@@ -94,10 +94,10 @@ const appRoutes: RouteType[] = [
         element: <ButtonPage />,
         state: "component.button",
         sidebarProps: {
-          displayText: "Button"
-        }
-      }
-    ]
+          displayText: "Button",
+        },
+      },
+    ],
   },
   {
     path: "/documentation",
@@ -105,8 +105,8 @@ const appRoutes: RouteType[] = [
     state: "documentation",
     sidebarProps: {
       displayText: "Documentation",
-      icon: <ArticleOutlinedIcon />
-    }
+      icon: <ArticleOutlinedIcon />,
+    },
   },
   {
     path: "/changelog",
@@ -114,9 +114,9 @@ const appRoutes: RouteType[] = [
     state: "changelog",
     sidebarProps: {
       displayText: "Changelog",
-      icon: <FormatListBulletedOutlinedIcon />
-    }
-  }
+      icon: <FormatListBulletedOutlinedIcon />,
+    },
+  },
 ];
 
 export default appRoutes;
