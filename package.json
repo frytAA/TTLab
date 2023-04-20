@@ -23,10 +23,15 @@
     "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
     "@mui/material": "^5.12.1",
+    "@mui/icons-material": "^5.10.9",
+    "@reduxjs/toolkit": "^1.9.5",
+    "cjs-module-lexer": "^1.2.2",
     "electron-updater": "^5.3.0",
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primereact": "^9.3.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.10.0",
     "roboto-sass": "^1.0.4"
   },
   "devDependencies": {
